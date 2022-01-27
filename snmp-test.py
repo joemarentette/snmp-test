@@ -10,6 +10,6 @@ with open(host_list) as f:
 for i in addrs:
   i = i.strip() # Remove the newline character from the IP address string.
   print("\n--- Starting SNMP Walk on", i, "---") #Start marker
-  # SNMPWALK COMMAND = snmpwalk -r2 -c WWTwwt1! -v2c <HOST> sysDescr.0
+  # SNMPWALK COMMAND = snmpwalk -r2 -c community_string -v2c <HOST> sysDescr.0
   snmp_test = subprocess.run(["snmpwalk", "-r1", "-c", community_string, "-v2c", i, "sysDescr.0"])
   print("--- Done ---\n") #End Marker
